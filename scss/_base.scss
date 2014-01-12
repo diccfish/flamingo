@@ -1,0 +1,280 @@
+h1, h2 {
+	color: $aqua;
+	font-family: $headerFont;
+	font-size: 2.5em;
+	font-weight: 400;
+  text-shadow: 1px 1px #fff, 2px 2px #333;
+}
+
+h2 {
+  font-family: $baseFont;
+  font-size: 1.5em;
+}
+
+article {
+	background: $pink;
+  font-family: $baseFont;
+  font-size: 1em;
+}
+
+section {
+  color: #333;
+  margin: 0 auto;
+  width: 80%;
+}
+
+p {
+  font-size: .75em;
+}
+
+.flamingo {
+	background-image: url(../img/flamingo.svg);
+	background-repeat: no-repeat;
+	background-size: auto 80%;
+  background-position: -20% 50%;
+  text-align: right;
+	h1 {
+		font-size: 4em;
+    text-shadow: 1px 1px #fff, 2px 2px $aqua, 3px 3px $red;
+	}
+}
+
+.shout {
+  
+  h3 {
+    color: $red;
+    display: inline-block;
+    margin: 2em -4px;
+    text-shadow: 0 0 1px #fff;
+    width: 45%;
+  }
+
+  .shout1 {
+    font-size: 4em;
+    opacity: 0;
+    @include vendor-prefix (transform, rotate(-35deg));
+  }
+
+  .shout2 {
+    font-size: 5em;
+    opacity: 0;
+    @include vendor-prefix (transform, rotate(35deg));
+  }
+
+  &.active {
+    
+    .shout1 {
+      opacity: 1;
+      @include vendor-prefix (transition, opacity .5s 3s ease-in);
+    }
+
+    .shout2 {
+      opacity: 1;
+      @include vendor-prefix (transition, opacity .5s 4s ease-in);
+    }
+  }
+}
+
+.intro {
+  
+  i {
+    background: url(../img/flamingo-icon.svg) no-repeat;
+    display: inline-block;
+    height: 50px;
+    position: relative;
+    width: 50px;
+  }
+  
+  @for $i from 1 through 5 {
+    i:nth-of-type(#{$i}) {
+      margin: 2em 0 0 10%;
+    }
+  }
+
+  @for $i from 6 through 10 {
+    i:nth-of-type(#{$i}) {
+     display: none;
+    }
+  }
+}
+
+.hat {
+  background: url(../img/hat.jpg) repeat-x;
+  border: 10px inset $red;
+  height: 322px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.audubon, .badass {
+  svg {
+    max-height: 300px;
+  }
+}
+
+iframe {
+  display: block;
+  margin: 1em auto;
+}
+
+.yard {
+  height: 19em;
+  margin: 0 auto;
+  position: relative;
+  width: 50%;
+
+  .house {
+    background: $aqua;
+    height: 10em;
+    position: relative;
+    top: 6em;
+    width: 26em;
+
+    &:before {
+      border-bottom: 6em solid #666;
+      border-left: 13em solid transparent;
+      border-right: 13em solid transparent;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: -6em;
+    }
+  }
+
+  .door {
+    background: $red;
+    border: 5px solid #666;
+    border-bottom-width: 0;
+    bottom: 0;
+    height: 7em;
+    position: absolute;
+    right: 5em;
+    width: 5em;
+
+    &:before {
+      background: #666;
+      border-radius: 50%;
+      content: '';
+      height: .75em;
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      width: .75em;
+    }
+  }
+
+  .window {
+    background: $pink;
+    height: 4em;
+    left: 4em;
+    bottom: 5em;
+    position: absolute;
+    width: 4em;
+  }
+
+  .yard-flamingo {
+    background: url(../img/flamingo-icon.svg) no-repeat;
+    background-size: cover;
+    bottom: 0;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    width: 70px;
+  }
+}
+
+.map {
+  section {
+    margin: 10vh auto 0 auto;
+    position: relative;
+    height: 75vh;
+  }
+  h1 {
+    margin-bottom: .5em;
+  }
+  .areaExplained {
+    color: $aqua;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 50vh;
+  }
+  .florida {
+    position: absolute;
+    height: 100%;
+    &:hover {
+      &~ .areaExplained {
+        display: block;
+      }
+    }
+  }
+  .florida {
+    fill: #000;
+  }
+}
+
+.vice {
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+
+.links {
+  a {
+    color: #333;
+    display: block;
+    margin: 1em 0;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 540px) {
+  iframe {
+    width: 100%;
+  }
+}
+
+@media (min-width: 60em) {
+  h1 {
+    font-size: 3.5em;
+  }
+  
+  section {
+    line-height: 1.75em;
+  }
+  
+  p {
+    font-size: 1em;
+  }
+  
+  .flamingo {
+    background-size: cover;
+    h1 {
+      font-size: 5em;
+    }
+  }
+
+  .intro {
+
+    i {
+      @include vendor-prefix (transform-origin, 50% 100%);
+      @include vendor-prefix (animation, sway 3s linear infinite);
+    }
+
+    @for $i from 6 through 10 {
+      i:nth-of-type(#{$i}) {
+        display: inline-block;
+        margin: 1em 10% 1em 0;
+      }
+    }
+  }
+
+  .yard {
+    .yard-flamingo {
+      @include vendor-prefix (transform-origin, 50% 100%);
+      @include vendor-prefix (animation, sway 3s linear infinite);    
+    }
+  }
+}

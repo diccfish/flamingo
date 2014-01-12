@@ -1,0 +1,57 @@
+$primaryColor: #00a595;
+$pink: #efcbcd;
+$aqua: #74ffe7;
+$red:  #ff748c;
+
+@font-face {
+    font-family: 'abrahamlincoln';
+    src: url('../fonts/abrahamlincoln-webfont.eot');
+    src: url('../fonts/abrahamlincoln-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/abrahamlincoln-webfont.woff') format('woff'),
+         url('../fonts/abrahamlincoln-webfont.svg') format('svg'), 
+         url('../fonts/abrahamlincoln-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$headerFont: 'abrahamlincoln', sans-serif;
+$baseFont: 'Raleway', sans-serif;
+
+/*============================================
+  Vendor Prefixes
+=============================================*/
+@mixin vendor-prefix ($name, $argument) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+/*============================================
+  Animations
+=============================================*/
+
+@keyframes sway {
+	0% {
+		@include vendor-prefix (transform, rotate(20deg));
+	}
+	50% {
+		@include vendor-prefix (transform, rotate(-20deg));
+	}
+	100% {
+		@include vendor-prefix (transform, rotate(20deg));
+	}
+}
+
+@-webkit-keyframes sway {
+	0% {
+		@include vendor-prefix (transform, rotate(20deg));
+	}
+	50% {
+		@include vendor-prefix (transform, rotate(-20deg));
+	}
+	100% {
+		@include vendor-prefix (transform, rotate(20deg));
+	}
+}
